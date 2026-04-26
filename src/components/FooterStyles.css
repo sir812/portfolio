@@ -1,0 +1,130 @@
+.footer {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.right {
+  flex: 1;
+  min-width: 250px;
+  text-align: right; /* changed: align text to the right */
+  align-self: flex-end; /* ensure the block sits to the right in column and row layouts */
+}
+
+.location {
+  display: flex; /* changed: stack address, phone and email vertically */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.phone, .email {
+  display: flex;
+  align-items: center;
+  margin: 0; /* keep them directly under address */
+  gap: 0.5rem;
+}
+
+.location p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.phone h4, .email h4 {
+  margin: 0.1rem;
+  line-height: 1;
+}
+
+.phone h4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.phone svg {
+  transform: translateX(-35px);
+}
+
+.right h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.right p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* keep icon spacing for stacked layout */
+.location svg, .phone svg, .email svg {
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* ensure right column stays visually right on small screens */
+  .right {
+    min-width: 0;        /* allow it to shrink to the container width */
+    align-self: flex-end;
+    width: auto;
+    text-align: right;
+    margin-top: -170px
+  }
+
+  .social {
+    justify-content: flex-end;
+  }
+}
