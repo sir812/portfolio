@@ -37,7 +37,13 @@ const WorkCard = (props) => {
       <div className="project-container">
         {projects.map((project) => (
           <div className="project-card" key={project.title}>
-            <img src={project.imageSrc} alt={project.title} className="project-image" />
+            <img
+              src={project.imageSrc}
+              alt={project.title}
+              className="project-image"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.text}</p>
