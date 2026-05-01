@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from "../components/Navbar";
+import { FaCode, FaRocket, FaAward } from "react-icons/fa";
 import Footer from "../components/Footer";
 import Heroimage2 from "../components/Heroimage2";
-import "./AboutStyles.css";
-import { FaCode, FaRocket, FaAward } from "react-icons/fa";
+import Navbar from "../components/Navbar";
 import aboutBg from "../assets/chen-Qtu3hGinLF8-unsplash.jpg";
+import "./AboutStyles.css";
 
 const About = () => {
   return (<div>

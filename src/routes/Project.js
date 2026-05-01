@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from "../components/Navbar";
+import projectBg from "../assets/altumcode-Y8iPJEvUz6c-unsplash.jpg";
 import Footer from "../components/Footer";
 import Heroimage2 from "../components/Heroimage2";
-import WorkCard from "../components/WorkCard";
+import Navbar from "../components/Navbar";
 import PricingCard from "../components/PricingCard";
-import projectBg from "../assets/altumcode-Y8iPJEvUz6c-unsplash.jpg";
+import WorkCard from "../components/WorkCard";
 
 const Project = () => {
   return (

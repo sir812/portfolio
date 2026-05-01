@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import Navbar from "../components/Navbar";
 import HeroImage from "../components/HeroImage";
 import Footer from "../components/Footer";
-import WorkCard from "../components/WorkCard";
+const WorkCard = lazy(() => import("../components/WorkCard"));
 
 
 const Home = () => {
@@ -10,7 +10,9 @@ const Home = () => {
     <div>
       <Navbar />
       <HeroImage />
-      <WorkCard heading="Featured Project" />
+      <Suspense fallback={<div>Loading projects...</div>}>
+        <WorkCard heading="Featured Project" />
+      </Suspense>
       <Footer />
     </div>
   );
