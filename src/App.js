@@ -1,11 +1,12 @@
 import React, { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./routes/Home"
+
 const About = lazy(() => import("./routes/About"));
 const Project = lazy(() => import("./routes/Project"));
 const Contact = lazy(() => import("./routes/Contact"));
 
-import {Route, Routes } from "react-router-dom"
 
 function App() {
   return (

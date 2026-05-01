@@ -1,8 +1,8 @@
-import "./WorkCardStyles.css";
 import React from "react";
 import projectImage from "../assets/chen-Qtu3hGinLF8-unsplash.jpg";
 import projectImageTwo from "../assets/oscar-nord-MuJHwDHbXUk-unsplash.jpg";
 import projectImageThree from "../assets/sabri-tuzcu-wunVFNvqhfE-unsplash.jpg";
+import "./WorkCardStyles.css";
 
 const WorkCard = (props) => {
   const heading = props.heading || "Projects";

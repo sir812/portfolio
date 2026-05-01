@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Heroimage2 from "../components/Heroimage2";
-import "./ContactStyles.css";
 import { FaHome, FaMailBulk, FaPhone, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
+import Footer from "../components/Footer";
+import Heroimage2 from "../components/Heroimage2";
+import Navbar from "../components/Navbar";
 import contactBg from "../assets/nat-weerawong-sFLJKl2jS0c-unsplash.jpg";
+import "./ContactStyles.css";
 
 const Contact = () => {
   return (<div>
