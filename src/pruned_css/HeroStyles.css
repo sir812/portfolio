@@ -1,0 +1,112 @@
+/* Pruned CSS placeholder: copy of current HeroStyles.css for review */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   background: url('../assets/IntroImage.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the entire area */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional overlay effect */
+  z-index: 1; /* Ensure the mask is below the content */
+}
+
+.mask::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.content {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  z-index: 2; /* Ensure the content is above the mask and image */
+  color: #fff; /* White text for visibility */
+  text-align: center; /* Center the text */
+}
+
+.content p {
+  font-size: 1.5rem; /* Adjust paragraph font size */
+  margin: 0.5rem 0;
+}
+
+.content h1 {
+  font-size: 3rem; /* Adjust heading font size */
+  margin: 0.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  margin: 1rem 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #98f8e1;
+  color: #060606;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Add transition for smooth effect */
+}
+
+.btn:hover {
+  background-color: #084a3c; /* Darker shade on hover */
+  color: #000000;
+  transform: scale(1.1); /* Slightly enlarge the button */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.btn-light {
+  background-color: #a0caf8;
+  color: #000;
+  transition: all 0.3s ease; /* Add transition for smooth effect */
+}
+
+.btn-light:hover {
+  background-color: #1d344c; /* Slightly darker shade on hover */
+  transform: scale(1.1); /* Slightly enlarge the button */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+@media screen and (max-width:640px){
+  .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  z-index: 2; /* Ensure the content is above the mask and image */
+  color: #fff; /* White text for visibility */
+  text-align: center; /* Center the text */
+}
+
+.content p {
+  font-size: 1.5rem; /* Adjust paragraph font size */
+  margin: 0.5rem 0;
+}
+
+.content h1 {
+  font-size: 3rem; /* Adjust heading font size */
+  margin: 0.5rem 0;
+}
+
+
+}

@@ -1,0 +1,81 @@
+/* Pruned CSS placeholder: copy of current PricingCard.css for review */
+.pricing {
+	width: 100%;
+	padding: 4rem 1rem;
+	background: #0b0f17;
+}
+
+.card-container {
+	max-width: 1140px;
+	margin: auto;
+	display: flex;
+	gap: 1.5rem;
+	justify-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+
+.card {
+	position: relative;
+	flex: 1 1 300px;
+	max-width: 360px;
+	text-align: center;
+	padding: 2rem 1.25rem;
+	border: 1px solid #2a3142;
+	border-radius: 12px;
+	background: #111827;
+	color: #f3f4f6;
+}
+
+.card.popular {
+	border-color: #38bdf8;
+	box-shadow: 0 12px 30px rgba(14, 165, 233, 0.2);
+	transform: translateY(-8px);
+}
+
+.popular-badge {
+	position: absolute;
+	top: -12px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: linear-gradient(90deg, #22d3ee, #38bdf8);
+	color: #041018;
+	font-size: 0.72rem;
+	font-weight: 700;
+	padding: 0.35rem 0.7rem;
+	border-radius: 999px;
+	letter-spacing: 0.04em;
+}
+
+.bar {
+	display: block;
+	width: 42px;
+	border-bottom: 1px solid #7dd3fc;
+	margin: 1.25rem auto;
+}
+
+.btc {
+	font-size: 2rem;
+	font-weight: 700;
+	padding: 0.8rem 0;
+}
+
+.card p {
+	padding: 0.45rem 0;
+}
+
+@media screen and (max-width: 900px) {
+	.card-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card {
+		width: 100%;
+		max-width: 500px;
+	}
+
+	.card.popular {
+		transform: none;
+	}
+}
