@@ -3,6 +3,8 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 1.25rem 5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: 820px;
   overflow: hidden;
   color: #e2e8f0;
 }

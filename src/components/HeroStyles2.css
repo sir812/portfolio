@@ -163,6 +163,20 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .heroimage2::before,
+  .heading,
+  .heading h1,
+  .heading p,
+  .heading::before {
+    animation: none !important;
+  }
+
+  .heading {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
 /* responsive tweaks */
 @media (max-width: 480px) {
   .heroimage2 {

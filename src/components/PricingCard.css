@@ -1,6 +1,8 @@
 .pricing {
 	width: 100%;
 	padding: 4rem 1rem;
+	content-visibility: auto;
+	contain-intrinsic-size: 700px;
 	background: #0b0f17;
 }
 
