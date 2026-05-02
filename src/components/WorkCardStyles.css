@@ -45,11 +45,11 @@
 	border: 1px solid rgba(255, 255, 255, 0.14);
 	background: linear-gradient(160deg, #111d34 0%, #0d172a 100%);
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
-	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .project-card:hover {
-	transform: translateY(-6px);
+	transform: translateY(-3px);
 	border-color: rgba(167, 195, 255, 0.45);
 	box-shadow: 0 20px 36px rgba(0, 0, 0, 0.35);
 }

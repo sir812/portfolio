@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import "./HeroStyles2.css";
+import ProgressiveImage from './ProgressiveImage';
 
 class Heroimage2 extends Component {
   render() {
-    const heroBackground = this.props.bgImage
-      ? {
-          backgroundImage: `linear-gradient(135deg, rgba(11,18,32,0.82) 0%, rgba(23,32,51,0.68) 60%, rgba(11,18,32,0.82) 100%), url(${this.props.bgImage})`,
-        }
-      : undefined;
-
     return (
-     <div className="heroimage2" style={heroBackground}>
+     <div className="heroimage2">
+      {this.props.bgImage && (
+        <ProgressiveImage
+          src={this.props.bgImage}
+          srcSet={this.props.bgSrcSet}
+          sizes={this.props.bgSizes}
+          className="heroimage2__background"
+          alt=""
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          style={{ width: '100%', height: '100%' }}
+        />
+      )}
       <div className="heading">
         <h1>{this.props.heading || "Hi"}</h1>
         <p>{this.props.text || "Welcome"}</p>

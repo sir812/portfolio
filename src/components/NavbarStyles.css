@@ -6,20 +6,17 @@
   z-index: 100;
   position: fixed;
   width: 100%;
-height: 90px;
-z-index: 10;
-}
-
-.header-bg{
-background-color: rgba(0, 0, 0, 0.85);
-transition: 0.5s;
-
+  height: 90px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .header h1 {
   font-size: 2rem; /* Adjust the size if needed */
   color: #ffffff; /* Default color */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  transition: color 160ms ease;
 }
 
 .header h1:hover {
@@ -27,15 +24,7 @@ transition: 0.5s;
 }
 
 .nav-menu {
-  display: flex;  .header h1 {
-    font-size: 2rem; /* Adjust the size if needed */
-    color: #ffffff; /* Default color */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-  
-}
-  .header h1:hover {
-    color: #f4bacc; /* Change to a soft pink on hover */
-  }
+  display: flex;
 }
 
 .nav-menu li {
@@ -47,12 +36,12 @@ transition: 0.5s;
   font-weight: 900;
   color: #ffffff; /* Default color for links */
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .nav-menu li a:hover {
   color: #f4bacc; /* Hover color */
-  transform: scale(1.1); /* Slightly enlarge the link on hover */
+  transform: translateY(-1px);
 }
 
 .hamburger {
@@ -84,7 +73,7 @@ transition: 0.5s;
     position: absolute;
     top: 0;
     left: -100%;
-    transition: 0.4s;
+    transition: left 180ms ease;
   }
 
   .nav-menu.active {
@@ -98,12 +87,12 @@ transition: 0.5s;
   .nav-menu li a {
     font-size: 2rem;
     color: #ffffff; /* Default color for mobile links */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for mobile view */
+    transition: color 160ms ease, transform 160ms ease;
   }
 
   .nav-menu li a:hover {
     color: #f4bacc; /* Hover color for mobile links */
-    transform: scale(1.1); /* Slightly enlarge the link on hover */
+    transform: translateY(-1px);
   }
 
   .hamburger {
