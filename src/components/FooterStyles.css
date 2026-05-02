@@ -1,132 +1,163 @@
 .footer {
   width: 100vw;
   box-sizing: border-box;
-  padding: 1rem 2rem;
+  padding: 3.5rem 2rem 1.5rem;
   content-visibility: auto;
   contain-intrinsic-size: 360px;
-  background-color: #000;
-  color: #fff;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  color: #e0e4eb;
   margin: 0;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.left {
-  flex: 1;
-  min-width: 250px;
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 2rem;
 }
 
-.right {
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e8eefc;
+  margin: 0 0 1.5rem 0;
+}
+
+.left, .right {
   flex: 1;
-  min-width: 250px;
-  text-align: right; /* changed: align text to the right */
-  align-self: flex-end; /* ensure the block sits to the right in column and row layouts */
 }
 
 .location {
-  display: flex; /* changed: stack address, phone and email vertically */
+  display: flex;
   flex-direction: column;
+  gap: 1.2rem;
+}
+
+.location-item, .contact-item {
+  display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0;
+  gap: 1rem;
 }
 
-.phone, .email {
-  display: flex;
-  align-items: center;
-  margin: 0; /* keep them directly under address */
-  gap: 0.5rem;
+.location-item .icon, .contact-item .icon {
+  color: #98f8e1;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
-.location p {
+.location-item p, .contact-item p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d8dce6;
 }
 
-.phone h4, .email h4 {
-  margin: 0.1rem;
-  line-height: 1;
+.contact-item a {
+  color: #98f8e1;
+  text-decoration: none;
+  transition: color 200ms ease;
+  font-size: 0.95rem;
 }
 
-.phone h4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
+.contact-item a:hover {
+  color: #7de8d5;
+  text-decoration: underline;
 }
 
-.phone svg {
-  transform: translateX(-35px);
+.divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  min-height: 180px;
 }
 
-.right h4 {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.right p {
-  font-size: 1rem;
-  line-height: 1.5;
+.footer-desc {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d8dce6;
 }
 
 .social {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  width: 100%;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.social a {
+.social-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(152, 248, 225, 0.1);
+  color: #98f8e1;
+  transition: all 200ms ease;
+  border: 1px solid rgba(152, 248, 225, 0.2);
 }
 
-/* keep icon spacing for stacked layout */
-.location svg, .phone svg, .email svg {
-  margin-right: 0.75rem;
-  flex-shrink: 0;
+.social-link:hover {
+  background: rgba(152, 248, 225, 0.2);
+  color: #7de8d5;
+  transform: translateY(-2px);
+  border-color: rgba(152, 248, 225, 0.4);
 }
 
-@media screen and (max-width: 768px) {
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #a8adb8;
+}
+
+@media screen and (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .footer {
-    padding: 1.5rem;
-    left: 0;
-    right: 0;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+    padding: 2.5rem 1.5rem 1.5rem;
   }
 
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  /* ensure right column stays visually right on small screens */
-  .right {
-    min-width: 0;        /* allow it to shrink to the container width */
-    align-self: flex-end;
-    width: auto;
-    text-align: right;
-    margin-top: -170px
+  .footer-title {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
   }
 
   .social {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }

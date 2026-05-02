@@ -30,6 +30,7 @@ const ProgressiveImage = ({
         fetchPriority={fetchPriority}
         loading={loading}
         decoding={decoding}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         onLoad={(e) => {
           setLoaded(true);
           const shimmer = e.currentTarget.parentElement.querySelector('.placeholder-shimmer');
@@ -37,7 +38,7 @@ const ProgressiveImage = ({
         }}
       />
       <img src={placeholder} alt="placeholder" aria-hidden="true" style={{display:'none'}} />
-      <div className="placeholder-shimmer" aria-hidden="true" />
+      <div className="placeholder-shimmer" aria-hidden="true" style={{ opacity: loaded ? 0 : 1, transition: 'opacity 220ms ease-out' }} />
     </div>
   );
 };

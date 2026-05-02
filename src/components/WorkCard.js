@@ -57,7 +57,7 @@ const WorkCard = (props) => {
         {projects.map((project) => {
           return (
             <div className="project-card" key={project.title}>
-              <div>
+              <div style={{ width: '100%', height: '230px' }}>
                 <ProgressiveImage
                   src={project.imageSrc}
                   srcSet={project.imageSrcSet}
@@ -66,6 +66,7 @@ const WorkCard = (props) => {
                   className="project-image"
                   loading="lazy"
                   decoding="async"
+                  style={{ width: '100%', height: '100%' }}
                 />
               </div>
               <div className="project-content">
