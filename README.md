@@ -1,70 +1,263 @@
-# Getting Started with Create React App
+# 🎨 Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, high-performance portfolio website showcasing projects and professional work. Built with React and optimized for speed, accessibility, and visual impact.
 
-## Available Scripts
+**Live Demo:** [portfolio-tawny-kappa-39.vercel.app](https://portfolio-tawny-kappa-39.vercel.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **⚡ Performance Optimized**
+  - Code splitting with React Suspense for faster initial load
+  - Responsive WebP images with adaptive srcsets for different screen sizes
+  - CSS optimization tooling to eliminate unused styles
+  - Skeleton loaders for smooth page transitions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **📱 Fully Responsive**
+  - Mobile-first design that works seamlessly across all devices
+  - Touch-friendly navigation with hamburger menu
+  - Optimized images for different viewport sizes (400px to 1600px)
 
-### `npm test`
+- **🎯 Modern UX**
+  - Smooth page transitions with lazy-loaded content
+  - Interactive components and animations
+  - Clean, professional design with strategic visual hierarchy
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **🔧 Developer-Friendly**
+  - React Router for client-side navigation
+  - CSS module organization (component-scoped styles)
+  - Unused CSS detection and pruning tools
+  - Comprehensive test setup with React Testing Library
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+├── routes/              # Page components (Home, About, Projects, Contact)
+│   ├── Home.js
+│   ├── Project.js
+│   ├── About.js
+│   ├── Contact.js
+│   └── *BelowFold.js    # Content below the fold (lazy-loaded)
+│
+├── components/          # Reusable UI components
+│   ├── Navbar.js        # Navigation with mobile menu
+│   ├── HeroImage.js     # Hero section
+│   ├── WorkCard.js      # Project card component
+│   ├── PricingCard.js   # Service/pricing cards
+│   └── Skeleton*.js     # Loading placeholders
+│
+├── assets/              # Images and media
+│   └── responsive/      # Responsive image variants
+│
+├── App.js               # Main app with routing
+├── index.js             # Entry point with Router setup
+└── index.css            # Global styles
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# Clone the repository
+git clone https://github.com/sir812/portfolio.git
+cd portfolio
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Install dependencies
+npm install
+```
 
-## Learn More
+### Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Start development server
+npm start
+```
+The app will open at `http://localhost:3000` with hot reload enabled.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Production Build
 
-### Code Splitting
+```bash
+# Create optimized production build
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Build outputs to the `build/` folder ready for deployment
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🛠 Available Scripts
 
-### Making a Progressive Web App
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server with hot reload |
+| `npm test` | Run tests in interactive watch mode |
+| `npm run build` | Build optimized production bundle |
+| `npm run analyze:css` | Generate report of unused CSS classes |
+| `npm run eject` | Expose Create React App configuration (irreversible) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🎯 Page Overview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 🏠 Home
+- Hero introduction section with call-to-action
+- Featured work preview
+- Loading skeletons for visual polish
 
-### Deployment
+### 📋 About
+- Professional background and expertise
+- Skills and experience highlights
+- Personal touch to build connection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 🎨 Projects
+- Portfolio of completed work
+- Project descriptions and impact metrics
+- Responsive image gallery with optimized loading
 
-### `npm run build` fails to minify
+### 💬 Contact
+- Contact form for inquiries
+- Social links and ways to connect
+- Call-to-action for collaboration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🖼 Image Optimization
+
+Images are optimized with multiple strategies:
+
+- **WebP Format**: Modern, smaller file size with better compression
+- **Responsive Variants**: Generated for different breakpoints:
+  - 400px (mobile)
+  - 800px (tablet)
+  - 1200px (desktop)
+  - 1600px (large displays)
+- **Lazy Loading**: Images load only when needed
+- **Responsive Srcsets**: Browser automatically selects best variant
+
+### Generating Responsive Images
+
+```bash
+# Generate responsive WebP variants (requires Python)
+python scripts/generate_responsive_webp.py
+```
+
+---
+
+## 🧹 CSS Optimization
+
+Keep your CSS lean and eliminate unused rules:
+
+```bash
+# Analyze CSS and generate unused classes report
+npm run analyze:css
+```
+
+This generates `unused-css-report.json` with:
+- Total CSS selectors across all files
+- Count of unused selectors
+- Detailed breakdown per CSS file
+
+```bash
+# Automatically remove unused CSS
+node scripts/prune-unused-css.js
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run test suite in watch mode
+npm test
+
+# Run tests once (CI mode)
+npm test -- --watchAll=false
+```
+
+Tests use React Testing Library with comprehensive coverage for components.
+
+---
+
+## 📦 Tech Stack
+
+- **Frontend Framework**: React 19
+- **Routing**: React Router v6
+- **Styling**: CSS (scoped per component)
+- **Icons**: react-icons
+- **Testing**: React Testing Library + Jest
+- **Build Tool**: Create React App (Webpack)
+- **Deployment**: Vercel
+- **Analytics**: @vercel/toolbar
+
+---
+
+## 🚢 Deployment
+
+### Deploy to Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy from project root
+vercel
+```
+
+### Other Deployment Options
+
+- **GitHub Pages**: `npm run build` then deploy the `build/` folder
+- **Netlify**: Connect your GitHub repo to Netlify for automatic deploys
+- **Traditional Hosting**: Upload the `build/` folder to any static host
+
+---
+
+## 📊 Performance Tips
+
+- ✅ Already optimized with code splitting via Suspense
+- ✅ Images use responsive formats and loading strategies
+- ✅ CSS is analyzed for unused rules
+- 💡 Monitor Core Web Vitals using Vercel Analytics
+- 💡 Regularly check the unused CSS report and prune old styles
+
+---
+
+## 🤝 Contributing
+
+Improvements are welcome! Feel free to:
+- Report issues
+- Suggest new features
+- Submit pull requests
+
+---
+
+## 📄 License
+
+This project is open source. Feel free to use it as inspiration for your own portfolio.
+
+---
+
+## 👤 About Me
+
+This portfolio showcases my work and expertise. Connect with me to discuss projects, collaboration, or opportunities.
+
+- **Website**: [portfolio-tawny-kappa-39.vercel.app](https://portfolio-tawny-kappa-39.vercel.app)
+- **GitHub**: [@sir812](https://github.com/sir812)
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with [Create React App](https://create-react-app.dev/)
+- Deployed on [Vercel](https://vercel.com)
+- Icons from [react-icons](https://react-icons.github.io/react-icons/)
