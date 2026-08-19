@@ -17,7 +17,7 @@ const About = () => {
       <Navbar />
       <Heroimage2
         heading="About"
-        text="Some of my details"
+        text="I translate raw data into actionable business value."
         bgImage={aboutBg}
         bgSrcSet={`${about400} 400w, ${about800} 800w, ${about1200} 1200w, ${about1600} 1600w`}
         bgSizes={"(max-width:600px) 100vw, 1200px"}
