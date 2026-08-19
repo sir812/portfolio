@@ -41,7 +41,7 @@ const Footer = () => {
 
           <div className="right">
             <h3 className="footer-title">Connect</h3>
-            <p className="footer-desc">Full Stack Developer & Applied AI Engineer</p>
+            <p className="footer-desc">Data Analyst and Business Intelligence</p>
             <p className="footer-desc">Open to collaboration and new opportunities</p>
             <div className="social">
               <a href="https://www.linkedin.com/in/surajbhardwaj7092/" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
