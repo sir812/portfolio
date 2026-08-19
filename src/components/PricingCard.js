@@ -5,29 +5,29 @@ import "./PricingCard.css"
 const PricingCard = () => {
     const plans = [
         {
-            name: "BASIC",
-            price: "₹ 500",
-            duration: "3 Days",
-            pages: "3 Pages",
-            featured: "Featured",
-            responsive: "Responsive Design",
+            name: "BASIC ANALYTICS",
+            price: "₹ 5,000",
+            duration: "5 Days Delivery",
+            pages: "1 Dashboard Page",
+            featured: "Data Cleaning & Prep",
+            responsive: "PDF & Excel Reports",
         },
         {
-            name: "ADVANCED",
-            price: "₹ 1000",
-            duration: "5 Days",
-            pages: "6 Pages",
-            featured: "Featured",
-            responsive: "Responsive Design",
+            name: "BI DASHBOARD",
+            price: "₹ 15,000",
+            duration: "10 Days Delivery",
+            pages: "Multi-Page Dashboard",
+            featured: "Live Data Connections",
+            responsive: "User Training Session",
             popular: true,
         },
         {
-            name: "PREMIUM",
-            price: "₹ 2000",
-            duration: "7 Days",
-            pages: "10 Pages",
-            featured: "Featured",
-            responsive: "Responsive Design",
+            name: "ENTERPRISE BI",
+            price: "₹ 30,000",
+            duration: "20 Days Delivery",
+            pages: "Custom ETL Pipelines",
+            featured: "Predictive Analytics",
+            responsive: "1 Month Support",
         },
     ];
 
@@ -52,7 +52,7 @@ const PricingCard = () => {
     );
 };
 
-export default PricingCard            
+export default PricingCard
 
 
 
