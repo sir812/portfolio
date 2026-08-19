@@ -24,24 +24,24 @@ const WorkCard = (props) => {
   const heading = props.heading || "Projects";
   const subheading =
     props.subheading ||
-    "Professional work delivered with clear structure, visual discipline, and measurable outcomes.";
+    "Data analysis and business intelligence projects featuring interactive dashboards, regression modeling, and performance reporting.";
 
   const projects = [
     {
-      title: "Executive Portfolio",
-      text: "A modern personal brand platform focused on storytelling, trust, and conversion-ready contact flow.",
+      title: "BI Analytics Dashboard",
+      text: "An interactive business intelligence dashboard built to track key performance indicators, sales funnels, and customer growth trends.",
       imageSrc: props.image || projectImage,
       imageSrcSet: `${p1_400} 400w, ${p1_800} 800w, ${p1_1200} 1200w, ${p1_1600} 1600w`,
     },
     {
-      title: "SaaS Landing Experience",
-      text: "A high-clarity product page with performance-first sections, pricing narrative, and responsive interaction.",
+      title: "Marketing Campaign ROI",
+      text: "A data analytics application visualizing customer acquisition cost, conversion rates, and revenue performance across various media channels.",
       imageSrc: projectImageTwo,
       imageSrcSet: `${p2_400} 400w, ${p2_800} 800w, ${p2_1200} 1200w, ${p2_1600} 1600w`,
     },
     {
-      title: "Creative Studio Showcase",
-      text: "A portfolio system for case studies and client highlights, crafted for strong first impressions.",
+      title: "Predictive Customer Analytics",
+      text: "An exploratory data analysis tool demonstrating customer segmentation models, churn prediction, and purchasing behavior patterns.",
       imageSrc: projectImageThree,
       imageSrcSet: `${p3_400} 400w, ${p3_800} 800w, ${p3_1200} 1200w, ${p3_1600} 1600w`,
     },
