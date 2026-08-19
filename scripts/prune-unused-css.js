@@ -5,33 +5,177 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
-function pruneFile(cssPath, unusedSelectors) {
-  const content = fs.readFileSync(cssPath, 'utf8');
-  const ruleRegex = /([^{}]+)\{([^}]*)\}/g;
-  let match;
-  const kept = [];
-
-  while ((match = ruleRegex.exec(content)) !== null) {
-    const rawSelectors = match[1].trim();
-    const body = match[2];
-    const selectors = rawSelectors.split(',').map(s => s.trim());
-
-    // Determine if rule contains any non-class selectors (keep in that case)
-    const hasNonClass = selectors.some(s => !s.startsWith('.'));
-    if (hasNonClass) {
-      kept.push(`${selectors.join(', ')} {${body}}`);
-      continue;
+function parseCSS(content) {
+  // Strip comments first to avoid matching braces inside comments
+  const cleanContent = content.replace(/\/\*[\s\S]*?\*\//g, '');
+  
+  let index = 0;
+  
+  function parseBlock() {
+    const nodes = [];
+    let start = index;
+    
+    while (index < cleanContent.length) {
+      const char = cleanContent[index];
+      
+      if (char === '{') {
+        const preamble = cleanContent.slice(start, index).trim();
+        index++; // consume '{'
+        
+        if (preamble.startsWith('@media') || preamble.startsWith('@supports')) {
+          // Nested block rules
+          const nestedRules = parseBlock();
+          nodes.push({
+            type: 'nested-at-rule',
+            preamble,
+            rules: nestedRules
+          });
+        } else if (preamble.startsWith('@keyframes') || preamble.startsWith('@-webkit-keyframes')) {
+          let braceCount = 1;
+          const bodyStart = index;
+          while (index < cleanContent.length && braceCount > 0) {
+            if (cleanContent[index] === '{') braceCount++;
+            else if (cleanContent[index] === '}') braceCount--;
+            index++;
+          }
+          const body = cleanContent.slice(bodyStart, index - 1);
+          nodes.push({
+            type: 'leaf-at-rule',
+            preamble,
+            body
+          });
+        } else if (preamble.startsWith('@font-face') || preamble.startsWith('@page')) {
+          let braceCount = 1;
+          const bodyStart = index;
+          while (index < cleanContent.length && braceCount > 0) {
+            if (cleanContent[index] === '{') braceCount++;
+            else if (cleanContent[index] === '}') braceCount--;
+            index++;
+          }
+          const body = cleanContent.slice(bodyStart, index - 1);
+          nodes.push({
+            type: 'leaf-at-rule',
+            preamble,
+            body
+          });
+        } else {
+          // Style rule
+          let braceCount = 1;
+          const bodyStart = index;
+          while (index < cleanContent.length && braceCount > 0) {
+            if (cleanContent[index] === '{') braceCount++;
+            else if (cleanContent[index] === '}') braceCount--;
+            index++;
+          }
+          const body = cleanContent.slice(bodyStart, index - 1);
+          nodes.push({
+            type: 'rule',
+            preamble,
+            body
+          });
+        }
+        start = index;
+      } else if (char === '}') {
+        index++; // consume '}'
+        return nodes;
+      } else if (char === ';') {
+        index++;
+        const statement = cleanContent.slice(start, index).trim();
+        if (statement) {
+          nodes.push({
+            type: 'statement',
+            content: statement
+          });
+        }
+        start = index;
+      } else {
+        index++;
+      }
     }
+    
+    const remaining = cleanContent.slice(start).trim();
+    if (remaining) {
+      nodes.push({
+        type: 'statement',
+        content: remaining
+      });
+    }
+    
+    return nodes;
+  }
+  
+  return parseBlock();
+}
 
-    // For class-only selectors, remove rule only if ALL referenced classes are unused
-    const allClassNames = selectors.map(s => s.replace(/^\./, '').split(/[: .>#\[]/)[0]);
-    const anyUsed = allClassNames.some(cn => !unusedSelectors.includes(cn));
-    if (anyUsed) {
-      kept.push(`${selectors.join(', ')} {${body}}`);
+function stringify(nodes, indent = '') {
+  return nodes.map(node => {
+    if (node.type === 'rule') {
+      return `${indent}${node.preamble} {${node.body}}`;
+    } else if (node.type === 'nested-at-rule') {
+      const inner = stringify(node.rules, indent + '  ');
+      return `${indent}${node.preamble} {\n${inner}\n${indent}}`;
+    } else if (node.type === 'leaf-at-rule') {
+      return `${indent}${node.preamble} {${node.body}}`;
+    } else if (node.type === 'statement') {
+      return `${indent}${node.content}`;
+    }
+    return '';
+  }).filter(Boolean).join('\n\n');
+}
+
+function pruneNodes(nodes, unusedSelectors) {
+  const pruned = [];
+  for (const node of nodes) {
+    if (node.type === 'rule') {
+      const selectors = node.preamble.split(',').map(s => s.trim());
+      
+      const hasNonClass = selectors.some(s => {
+        return !s.includes('.');
+      });
+      
+      if (hasNonClass) {
+        pruned.push(node);
+        continue;
+      }
+      
+      const allClassNames = [];
+      const classRegex = /\.(-?[a-zA-Z_][a-zA-Z0-9_-]*)/g;
+      let m;
+      for (const selector of selectors) {
+        while ((m = classRegex.exec(selector)) !== null) {
+          allClassNames.push(m[1]);
+        }
+      }
+      
+      if (allClassNames.length === 0) {
+        pruned.push(node);
+        continue;
+      }
+      
+      const anyUsed = allClassNames.some(cn => !unusedSelectors.includes(cn));
+      if (anyUsed) {
+        pruned.push(node);
+      }
+    } else if (node.type === 'nested-at-rule') {
+      const prunedRules = pruneNodes(node.rules, unusedSelectors);
+      if (prunedRules.length > 0) {
+        pruned.push({
+          ...node,
+          rules: prunedRules
+        });
+      }
+    } else {
+      pruned.push(node);
     }
   }
+  return pruned;
+}
 
-  return kept.join('\n\n');
+function pruneFile(cssPath, unusedSelectors) {
+  const content = fs.readFileSync(cssPath, 'utf8');
+  const nodes = parseCSS(content);
+  const prunedNodes = pruneNodes(nodes, unusedSelectors);
+  return stringify(prunedNodes);
 }
 
 function main() {

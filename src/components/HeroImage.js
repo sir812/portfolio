@@ -25,7 +25,7 @@ const HeroImage = () => {
       <div className="mask"></div>
       <div className="content">
         <p>Hi, My Name is Suraj Bhardwaj</p>
-        <h1> Full Stack Developer & Appiled AI Engineer</h1>
+        <h1>Data Analyst and Business Intelligence</h1>
         <Link to="/Project" className="btn">Projects</Link>
         <Link to="/Contact" className="btn btn-light">Contact</Link>
       </div>

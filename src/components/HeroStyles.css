@@ -1,8 +1,7 @@
-/* Style for the hero section */
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   overflow: hidden;
 }
 
@@ -19,15 +18,14 @@
   display: block;
 }
 
-/* Style for the mask */
 .mask {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Optional overlay effect */
-  z-index: 1; /* Ensure the mask is below the content */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
 }
 
 .mask::after {
@@ -41,36 +39,26 @@
   opacity: 0.8;
 }
 
-/* Style for the image */
-.Intro-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  z-index: 0; /* Ensure the image is at the lowest layer */
-}
-
-/* Style for the content */
 .content {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for centering */
-  z-index: 2; /* Ensure the content is above the mask and image */
-  color: #fff; /* White text for visibility */
-  text-align: center; /* Center the text */
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 2; 
+  color: #fff; 
+  text-align: center; 
 }
 
 .content p {
-  font-size: 1.5rem; /* Adjust paragraph font size */
+  font-size: 1.5rem; 
   margin: 0.5rem 0;
 }
 
 .content h1 {
-  font-size: 3rem; /* Adjust heading font size */
+  font-size: 3rem; 
   margin: 0.5rem 0;
 }
 
-/* Style for buttons */
 .btn {
   display: inline-block;
   margin: 1rem 0.5rem;
@@ -84,13 +72,12 @@
 }
 
 .btn:hover {
-  background-color: #084a3c; /* Darker shade on hover */
+  background-color: #084a3c; 
   color: #000000;
   transform: translateY(-1px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
 }
 
-/* Light button hover effect */
 .btn-light {
   background-color: #a0caf8;
   color: #000;
@@ -98,50 +85,36 @@
 }
 
 .btn-light:hover {
-  background-color: #1d344c; /* Slightly darker shade on hover */
+  background-color: #1d344c; 
   transform: translateY(-1px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
 }
 
-@media screen and (max-width:640px){
+@media screen and (max-width:640px) {
   .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   overflow: hidden;
 }
 
-/* Style for the content */
-.content {
+  .content {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for centering */
-  z-index: 2; /* Ensure the content is above the mask and image */
-  color: #fff; /* White text for visibility */
-  text-align: center; /* Center the text */
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 2; 
+  color: #fff; 
+  text-align: center; 
 }
 
-.content p {
-  font-size: 1.5rem; /* Adjust paragraph font size */
+  .content p {
+  font-size: 1.5rem; 
   margin: 0.5rem 0;
 }
 
-.content h1 {
-  font-size: 3rem; /* Adjust heading font size */
+  .content h1 {
+  font-size: 3rem; 
   margin: 0.5rem 0;
 }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-

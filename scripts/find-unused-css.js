@@ -18,19 +18,25 @@ function walk(dir, exts) {
 
 function extractUsedClassesFromJS(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const classRegex = /className\s*=\s*["'`]([^"'`]+)["'`]/g;
   const results = new Set();
+  
+  const stringRegex = /(["'`])([\s\S]*?)\1/g;
   let m;
-  while ((m = classRegex.exec(content)) !== null) {
-    const names = m[1].split(/\s+/).filter(Boolean);
-    names.forEach((n) => results.add(n));
+  while ((m = stringRegex.exec(content)) !== null) {
+    const words = m[2].split(/[\s"'`(),.;:!?=+$&%*|{}<>\[\]]+/);
+    words.forEach(w => {
+      if (/^-?[a-zA-Z_][a-zA-Z0-9_-]*$/.test(w)) {
+        results.add(w);
+      }
+    });
   }
+  
   return results;
 }
 
 function extractSelectorsFromCSS(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const selectorRegex = /\.([a-zA-Z0-9_-]+)/g;
+  const selectorRegex = /\.(-?[a-zA-Z_][a-zA-Z0-9_-]*)/g;
   const results = new Set();
   let m;
   while ((m = selectorRegex.exec(content)) !== null) {
